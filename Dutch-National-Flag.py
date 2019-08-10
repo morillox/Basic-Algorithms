@@ -5,7 +5,17 @@ def sort_012(input_list):
     Args:
        input_list(list): List to be sorted
     """
-    pass
+    counter = [0,0,0]
+
+    for i in input_list:
+        counter[i] = counter[i] + 1
+
+    ends0 = [0 for i in range(counter[0])]
+    ends1 = [1 for i in range(counter[1])]
+    ends2 = [2 for i in range(counter[2])]
+
+    return ends0 + ends1 + ends2
+
 
 def test_function(test_case):
     sorted_array = sort_012(test_case)
@@ -14,6 +24,7 @@ def test_function(test_case):
         print("Pass")
     else:
         print("Fail")
+
 
 test_function([0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2])
 test_function([2, 1, 2, 0, 0, 2, 1, 0, 1, 0, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, 2, 0, 0, 1])
