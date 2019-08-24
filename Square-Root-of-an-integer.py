@@ -1,19 +1,23 @@
 def sqrt(number):
-    """
-    Calculate the floored square root of a number
+    if number < 0:
+        return None
 
-    Args:
-       number(int): Number to find the floored squared root
-    Returns:
-       int: Floored Square Root
-    """
-    x = number
-    y = (x + 1) // 2
+    return SRT(0, number, number, None)
 
-    while y < x:
-        x = y
-        y = (x + number // x) // 2
-    return x
+def SRT(left, right, numbef, checknum):
+    if left > right:
+        return checknum
+
+    mid = left + (right - left) // 2
+    mult = mid * mid
+
+    if mult > numbef:
+        return SRT(left, mid - 1, numbef, checknum)
+    elif mult == numbef:
+        return mid
+    else:
+        return SRT(mid + 1, right, numbef, mid)
+
 
 print ("Pass" if  (3 == sqrt(9)) else "Fail")
 print ("Pass" if  (0 == sqrt(0)) else "Fail")
