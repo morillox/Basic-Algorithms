@@ -1,20 +1,14 @@
 def sort_012(input_list):
-    """
-    Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal.
+    counter = [0, 0, 0]
 
-    Args:
-       input_list(list): List to be sorted
-    """
-    counter = [0,0,0]
+    for index in input_list:
+        counter[index] = counter[index] + 1
 
-    for i in input_list:
-        counter[i] = counter[i] + 1
+    zeroes = [0 for element in range(counter[0])]
+    ones = [1 for element in range(counter[1])]
+    twos = [2 for element in range(counter[2])]
 
-    ends0 = [0 for i in range(counter[0])]
-    ends1 = [1 for i in range(counter[1])]
-    ends2 = [2 for i in range(counter[2])]
-
-    return ends0 + ends1 + ends2
+    return zeroes + ones + twos
 
 
 def test_function(test_case):
